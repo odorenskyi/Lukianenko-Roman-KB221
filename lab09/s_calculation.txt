@@ -1,0 +1,10 @@
+#include <iostream> 
+#include <iomanip> 
+#include <cmath> 
+
+using namespace std;
+
+double s_calculation(int x, int y, int z) {
+    double s = pow(x, y) + sqrt(abs(z));
+    return s;
+}

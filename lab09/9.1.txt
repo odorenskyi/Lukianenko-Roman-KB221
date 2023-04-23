@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int grade;
+    float min_wave_height, max_wave_height;
+    string description;
+
+    cout << "Enter the grade (0-9): ";
+    cin >> grade;
+
+    if (grade == 0) {
+        description = "Calm (Glassy)";
+        min_wave_height = 0;
+        max_wave_height = 0;
+    }
+    else if (grade == 1) {
+        description = "Light air (Rippled)";
+        min_wave_height = 1.0f;
+        max_wave_height = 1.0f + (1.0f/3.0f);
+    }
+    else if (grade == 2) {
+        description = "Light breeze (Smooth)";
+        min_wave_height = 2.0f;
+        max_wave_height = 2.0f + (2.0f/3.0f);
+    }
+    else if (grade == 3) {
+        description = "Gentle breeze (Slight)";
+        min_wave_height = 3.0f;
+        max_wave_height = 3.0f + (3.0f/3.0f);
+    }
+    else if (grade == 4) {
+        description = "Moderate breeze (Moderate)";
+        min_wave_height = 4.0f;
+        max_wave_height = 4.0f + (8.0f/8.0f);
+    }
+    else if (grade == 5) {
+        description = "Fresh breeze (Rough)";
+        min_wave_height = 8.0f;
+        max_wave_height = 8.0f + (5.0f/13.0f);
+    }
+    else if (grade == 6) {
+        description = "Strong breeze (Very rough)";
+        min_wave_height = 13.0f;
+        max_wave_height = 13.0f + (7.0f/20.0f);
+    }
+    else if (grade == 7) {
+        description = "Near gale (High)";
+        min_wave_height = 20.0f;
+        max_wave_height = 20.0f + (10.0f/30.0f);
+    }
+    else if (grade == 8) {
+        description = "Gale (Very high)";
+        min_wave_height = 30.0f;
+        max_wave_height = 30.0f + (15.0f/45.0f);
+    }
+    else if (grade == 9) {
+        description = "Storm (Phenomenal)";
+        min_wave_height = 45;
+        max_wave_height = 1000; // maximum possible wave height
+    }
+    else {
+        cout << "Invalid grade entered." << endl;
+        return 0;
+    }
+
+    cout << "Wave height range: " << min_wave_height << "m - " << max_wave_height << "m" << endl;
+    cout << "Description: " << description << endl;
+
+    return 0;
+}

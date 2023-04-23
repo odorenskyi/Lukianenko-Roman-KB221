@@ -1,0 +1,30 @@
+#include <iostream>
+#include <bitset>
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    bool D1 = std::bitset<32>(N).test(0);
+
+    int count = 0;
+    if (D1) { 
+        while (N) {
+            if ((N & 1) == 0) {
+                count++;
+            }
+            N >>= 1;
+        }
+    }
+    else { 
+        while (N) {
+            if ((N & 1) == 1) {
+                count++;
+            }
+            N >>= 1;
+        }
+    }
+
+    std::cout << count << std::endl;
+    return 0;
+}
