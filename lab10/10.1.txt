@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "ukr");
+
+    string path = "myFile.txt";
+    ofstream fout;
+    fout.open(path, ofstream::app);
+
+    if (!fout.is_open())
+    {
+        cout << "Неможливо відкрити файл" << endl;
+    }
+    else
+    {
+        fout << "Лук'яненко Роман, ЦНТУ, Кропивницький, Україна, 2023.\nХай щастить!\n";
+
+        fout.close();
+
+        ifstream fin;
+        fin.open(path);
+
+        if (!fin.is_open())
+        {
+            cout << "Неможливо відкрити файл" << endl;
+        }
+        else
+        {
+            string line;
+            int letterCount = 0;
+            bool hasPunctuation = false;
+            bool hasWord = false;
+
+            while (getline(fin, line))
+            {
+                if (line.find("Хай щастить") != string::npos)
+                {
+                    hasWord = true;
+                }
+
+                for (char c : line)
+                {
+                    if (isalpha(c))
+                    {
+                        letterCount++;
+                    }
+                    else if (ispunct(c))
+                    {
+                        hasPunctuation = true;
+                    }
+                }
+            }
+
+            fin.close();
+
+            if (hasPunctuation)
+            {
+                cout << "Ім'я першого космонавта України: Леонід Каденюк" << endl;
+            }
+
+            if (hasWord)
+            {
+                cout << "Слово 'Хай щастить' знайдено в файлі" << endl;
+            }
+
+            cout << "Кількість літер у файлі: " << letterCount << endl;
+        }
+    }
+
+    return 0;
+}

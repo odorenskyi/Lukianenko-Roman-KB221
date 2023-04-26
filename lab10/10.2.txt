@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "ukr");
+
+	string path = "poem.txt";
+	ofstream fout;
+
+	fout.open(path, ofstream::app);
+
+	time_t t = time(NULL);
+	struct tm* tm = localtime(&t);
+	char datetime[100];
+	strftime(datetime, sizeof(datetime), "%c", tm);
+
+	if (!fout.is_open())
+	{
+		cout << "invalid opening" << endl;
+	}
+	else
+	{
+		fout << "Хай щастить у Вашій хаті, мамо," << endl << "Всім, хто переступіть Ваш поріг" << endl << "Добрим людям, і птахам так само," << endl << "І котові, що в теплі приліг" << endl << "Хай щастить кожненькій деревині," << endl << "Що до хати віти притуля," << endl << "Хай щастить малесенькій травині" << endl << "Й вітерцю, що приліта здаля." << endl;
+		fout << datetime << endl;
+	}	
+
+
+	fout.close();
