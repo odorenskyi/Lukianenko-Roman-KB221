@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+class classlab12_lukianenko {
+    private:
+        int length;
+        int width;
+        int height;
+        float volume;
+
+    public:
+        classlab12_lukianenko(int l, int w, int h) {
+            length = l;
+            width = w;
+            height = h;
+            volume = l * w * h;
+        }
+
+        int getLength() {
+            return length;
+        }
+
+        int getWidth() {
+            return width;
+        }
+
+        int getHeight() {
+            return height;
+        }
+
+        float getVolume() {
+            return volume;
+        }
+
+        void setLength(int l) {
+            length = l;
+            volume = length * width * height;
+        }
+
+        void setWidth(int w) {
+            width = w;
+            volume = length * width * height;
+        }
+
+        void setHeight(int h) {
+            height = h;
+            volume = length * width * height;
+        }
+
+        void setDimensions(int l, int w, int h) {
+            length = l;
+            width = w;
+            height = h;
+            volume = l * w * h;
+        }
+};
+
+int main() {
+    classlab12_lukianenko aquarium(20, 30, 40);
+
+    cout << "Initial dimensions:" << endl;
+    cout << "Length: " << aquarium.getLength() << endl;
+    cout << "Width: " << aquarium.getWidth() << endl;
+    cout << "Height: " << aquarium.getHeight() << endl;
+    cout << "Volume: " << aquarium.getVolume() << endl;
+
+    aquarium.setLength(25);
+    aquarium.setWidth(35);
+    aquarium.setHeight(45);
+
+    cout << "New dimensions:" << endl;
+    cout << "Length: " << aquarium.getLength() << endl;
+    cout << "Width: " << aquarium.getWidth() << endl;
+    cout << "Height: " << aquarium.getHeight() << endl;
+    cout << "Volume: " << aquarium.getVolume() << endl;
+
+    return 0;
+}
